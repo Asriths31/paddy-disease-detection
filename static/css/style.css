@@ -150,6 +150,7 @@ nav a{
     body{
         background-image: url(/static/images/hand.jpeg);
         height: 100vh;
+        width: 100vw;
         overflow-x: hidden;
         background-size: cover;
         /* background-repeat: no-repeat; */
@@ -190,8 +191,11 @@ nav a{
         margin-left: 24px;
     }
     .upload{
-        width: fit-content;
-        margin-top: 15vh;
+        /* display: flex;
+        margin:0 auto; */
+        text-align: center;
+        width: 80vw;
+        margin-top: 13vh;
        }
        .submit{
         width: 100%;

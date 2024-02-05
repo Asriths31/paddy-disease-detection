@@ -16,10 +16,11 @@
   <div id="google_translate_element"></div>
     <div class="block">
   <div class="upload"> 
-     <h2>Upload an Image</h2>
-    <form method="post" enctype="multipart/form-data" action="/result">
+    <div class="upload1"> <h2>Upload an Image</h2>
+    <form method="post" enctype="multipart/form-data" action="/result" >
       <div> <input type="file" name="uploaded-img" class="up"> </div> 
        <div> <input type="submit" value="Upload" class="submit"> </div>
+      </div>
     </div>
     </form>
     {% if img %}

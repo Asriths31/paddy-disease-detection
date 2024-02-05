@@ -1,13 +1,13 @@
 from flask import *
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 ##from tensorflow.keras.optimizers import Adam
-import cv2
+
 from keras.models import load_model
-# from keras_preprocessing.image import img_to_array
+from keras_preprocessing.image import img_to_array
 import os
 from werkzeug.utils import secure_filename
 from PIL import Image
