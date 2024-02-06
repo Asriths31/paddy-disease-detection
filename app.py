@@ -55,6 +55,19 @@ def submit():
        
     return render_template('upload.html')
 
+@app.route('/api/predict',methods=['post'])
+
+def api_predict():
+    data=request.get_json(force=true)
+    
+     file=data["content"]
+     filename=secure_filename(file.filename)
+     file.save(os.path.join(app.config['UPLOAD'],filename))
+    img=os.path.join(app.config['UPLOAD'],filename)
+    resimg,accuracy=predict(img)
+   return jsonify({"prediction":resimg})
+   
+
 if __name__=='__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run( debug =True)
