@@ -41,7 +41,6 @@ def home():
     return render_template('home.html')
     
 
-
 @app.route('/result',methods=['GET','POST'])
 
 def submit():
