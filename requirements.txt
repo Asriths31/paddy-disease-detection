@@ -2,7 +2,6 @@ flask
 gunicorn
 numpy
 tensorflow
-keras.preprocessing.image
 keras.preprocessing
 keras.models
 keras_preprocessing.image
