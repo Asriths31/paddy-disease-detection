@@ -13,11 +13,7 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 
 
-
-
 model = load_model("model.h5")
-
-
 
 
 UPLOAD_FOLDER = os.path.join('static','uploads')
