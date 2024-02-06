@@ -4,7 +4,6 @@ numpy
 tensorflow
 keras.preprocessing
 keras.models
-keras_preprocessing.image
 os
 werkzeug.utils
 PIL
