@@ -59,13 +59,12 @@ def submit():
 
 def api_predict():
     data=request.get_json(force=true)
-    
-     file=data["content"]
-     filename=secure_filename(file.filename)
-     file.save(os.path.join(app.config['UPLOAD'],filename))
+    file=data["content"]
+    filename=secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD'],filename))
     img=os.path.join(app.config['UPLOAD'],filename)
     resimg,accuracy=predict(img)
-   return jsonify({"prediction":resimg})
+    return jsonify({"prediction":resimg})
    
 
 if __name__=='__main__':
