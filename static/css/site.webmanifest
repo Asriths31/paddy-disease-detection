@@ -1,5 +1,5 @@
-{"name":"padDDy",
-"short_name":"paddy disease detectroo",
+{"name":"paddy disease detectroo",
+"short_name":"padDDy",
 "icons":
 [{"src":"static/images/hand.jpeg","sizes":"192x192","type":"image/png"},
 {"src":"static/images/hand.jpeg","sizes":"512x512","type":"image/png"}],
