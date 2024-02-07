@@ -116,9 +116,12 @@ nav  a{
  .block{
     display: none;
  }
+ .main{
+    backdrop-filter: blur(0);
+ }
  .welcome{
     width: 100%;
     display: block;
-    margin: auto;
+    margin: -50px auto;
  }
 }
