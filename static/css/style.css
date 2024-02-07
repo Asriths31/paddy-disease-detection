@@ -18,31 +18,41 @@ nav{
     border-bottom: 3px solid  rgb(205, 224, 28);
     box-shadow:0px 20px 19px rgb(43, 40, 40);
 }
-nav a{
+nav  a{
+   
+    text-decoration: none;
+    width: 180px;
+    margin-right: 60px;
+}
+.home{
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    background-color: #f2e4d7;
+    color: rgb(231, 171, 4);
     margin:17px 50px 10px 0px ;
     text-decoration: none;
     font-size: large;
     text-align: center;
     font-weight: bolder;
-    color: #ffb874;
-    background-color: #f2e4d7;
+    border: none;
     padding: 0px 30px;
     border-radius: 10px;
-}
-.home{
-    width: 86px;
-    text-align: center;
-}
 
-
+}
+.home:hover{
+    background-color: rgb(231, 171, 4);
+    color: #f2e4d7;
+}
 
 .upload{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh auto 0 auto;
+    margin: 20vh auto 0 auto;
     width: 40%;
     color: rgb(247, 243, 236);
+    text-align: center;
     backdrop-filter: blur(5px);
     border: 2px solid rgb(205, 224, 28);
     border-radius: 20px;
@@ -54,6 +64,7 @@ nav a{
     padding: 8px;
     border-radius: 10px;
     border: 3px solid  rgb(205, 224, 28);
+    width: 92%;
     color: rgb(205, 224, 28);
 }
 .submit{
@@ -62,7 +73,7 @@ nav a{
     background-color: yellow;
     border-radius: 10px;
     border: 3px solid  rgb(205, 224, 28);
-    width: 20vw;
+    width: 100%;
 }
 
 
@@ -103,7 +114,7 @@ nav a{
     text-align: center;
     overflow: hidden;
     margin: 20px 0;
-    color: #c9680d;
+    color: greenyellow;
     /* columns: 200px 2;
     column-gap: 20px; */
 
@@ -111,11 +122,18 @@ nav a{
 
 .predict{
     display: block;
-    color: rgb(238, 242, 245);
+    color:#f2e4d7;
     text-transform: uppercase;
     font-size: large;
     font-weight: 800;
     text-align: center;
+}
+.solution{
+    background-color: #f5de14;
+    padding: 10px 20px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 20px;
 }
 .empty{
     height: 20px;
@@ -146,58 +164,40 @@ nav a{
     50% {background-position: 0 -100%,0 0}
 } */
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:430px) {
+  
     body{
-        background-image: url(/static/images/hand.jpeg);
+        background-image: url(/static/images/2.png);
         height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        background-size: cover;
-        /* background-repeat: no-repeat; */
-    }
-    nav{
-        background:transparent;
-        display: block;
-        backdrop-filter: blur(20px);
-        border: none;
-        width: 50vw;
-        margin-left: 20px;
-        margin-top: 20px;
-        /* box-shadow: none; */
-        padding: 0px 20px 10px 10px;
-        text-align: start;
-        border:2px solid #f5de14;
-        border-radius: 20px;
-    }
-    nav a{
-        background: transparent;
-        
-    }
-    nav a p{
-        /* background-color: red; */
         width: 100%;
-        height: fit-content;
-        font-size: 1.5rem;
-        margin-bottom: -20px;
-        color: #f5de14;
-        text-align: start;
+        overflow-x: hidden;
+        background-size:auto;
+        /* background-repeat: no-repeat; */
 
     }
-    .home{
-        text-align: start;
+    nav{
+    
+        flex-direction: column;
+        align-items: end;
+        height: auto;
+        width: 100vw;
+        overflow-x: hidden;
+        justify-content: space-around;
+        padding: 10px;
     }
-    #google_translate_element{
-        margin-top: 30px;
-        margin-left: 24px;
+    #start{
+        display: none;
+    }
+    #entry{
+        margin-right: 18px;
+
     }
     .upload{
-        /* display: flex;
-        margin:0 auto; */
-        text-align: center;
-        width: 80vw;
-        margin-top: 13vh;
-       }
-       .submit{
-        width: 100%;
-       }
+        overflow-x: hidden;
+        width: 80%;
+        display: block;
+        margin:10vh auto;
+    }
+    
+
 }

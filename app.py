@@ -20,7 +20,7 @@ model = load_model("model.h5")
 
 
 
-UPLOAD_FOLDER = os.path.join('static','uploads')
+UPLOAD_FOLDER = os.path.join('static','images')
 app = Flask(__name__,template_folder='templates',static_folder='static')
 app.config['UPLOAD'] = UPLOAD_FOLDER
 
@@ -53,8 +53,8 @@ def submit():
     if request.method == 'POST':
         file=request.files['uploaded-img']
         filename=secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD'],filename))
-        img=os.path.join(app.config['UPLOAD'],filename)
+        file.save('static\\images\\'+filename)
+        img='static\\images\\'+filename
         resimg,accuracy=predict(img)
         return render_template('upload.html',img=img,name=filename,prediction=resimg,confidence=accuracy)
        
