@@ -18,6 +18,7 @@ function typewriter1(){
        i++;
        setTimeout(typewriter1,speed);
     }
+   console.log("clickedddd")
 }
 function typewriter2(){
     let txt2="Rice leaf smut is a fungal disease caused by the pathogen Tilletia barclayana (syn. Tilletia horrida). It affects rice plants by forming characteristic smut galls or spore balls on the leaves, leaf sheaths, and sometimes the panicles. These galls are initially green but turn black as the disease progresses. The smut spores are carried by wind and water, spreading the disease to healthy plants. Rice leaf smut can significantly reduce crop yields if left uncontrolled, making it a concern for rice farmers worldwide. Control measures include using disease-resistant rice varieties, proper crop rotation, and fungicidal treatments."

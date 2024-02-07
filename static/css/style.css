@@ -164,8 +164,7 @@ nav  a{
     50% {background-position: 0 -100%,0 0}
 } */
 
-@media screen and (max-width:430px) {
-  
+@media screen and (max-width:400px) {
     body{
         background-image: url(/static/images/2.png);
         height: 100vh;

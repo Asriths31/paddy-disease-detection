@@ -13,16 +13,14 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 
 
-
-
 model = load_model("model.h5")
 
 
 
 
-UPLOAD_FOLDER = os.path.join('static','images')
+UPLOAD_FOLDER = os.path.join('static','uploads')
 app = Flask(__name__,template_folder='templates',static_folder='static')
-app.config['UPLOAD'] = UPLOAD_FOLDER
+# app.config['UPLOAD'] = UPLOAD_FOLDER
 
 
 def predict(img):
@@ -45,7 +43,6 @@ def home():
     return render_template('home.html')
     
 
-
 @app.route('/result',methods=['GET','POST'])
 
 def submit():
@@ -59,6 +56,18 @@ def submit():
         return render_template('upload.html',img=img,name=filename,prediction=resimg,confidence=accuracy)
        
     return render_template('upload.html')
+
+@app.route('/api/predict',methods=['post'])
+
+def api_predict():
+    data=request.get_json(force=true)
+    file=data["content"]
+    filename=secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD'],filename))
+    img=os.path.join(app.config['UPLOAD'],filename)
+    resimg,accuracy=predict(img)
+    return jsonify({"prediction":resimg})
+   
 
 if __name__=='__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True
