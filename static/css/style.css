@@ -66,7 +66,7 @@ nav  a{
     border-radius: 10px;
     border: 3px solid  #f5de14;
     width: 92%;
-    color: rgb(231, 171, 4);
+    color: #f5de14;
 }
 .submit{
     padding: 8px;
@@ -140,30 +140,6 @@ nav  a{
     height: 20px;
     width: 30px;
 }
-/* .para{
-    color:#0000;
-    width: auto;
-    margin:20px 20px;
-    overflow: hidden;
-    background: linear-gradient(-90deg,#00dffc 5px,#0000 0) 10px 0,linear-gradient(#00dffc 0 0)0 0;
-    background-size: calc(var(--n)*1ch) 200%;
-    -webkit-background-clip: padding-box,text;
-    background-clip: padding-box,text;
-    background-repeat: no-repeat;
-    border-right: 5px solid;
-    font-family: monospace;
-    columns: 200px 2;
-    column-gap: 30px;
-    animation: b .2s infinite steps(1),t calc(var(--n)*.1s) steps(var(--n)) forwards;
-
-}
-@keyframes t{
-    from {background-size: 0 200% }
-}
-@keyframes b{
-   
-    50% {background-position: 0 -100%,0 0}
-} */
 
 @media screen and (max-width:430px) {
     body{
@@ -173,14 +149,14 @@ nav  a{
         overflow-x: hidden;
         background-size:auto;
         margin: 0;
-        /* background-repeat: no-repeat; */
+        
 
     }
     nav{
     
         flex-direction: column;
         align-items: end;
-        height: auto;
+        height:80px ;
         width: 100vw;
         overflow-x: hidden;
         justify-content: space-around;
