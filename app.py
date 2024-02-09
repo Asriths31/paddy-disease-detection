@@ -59,8 +59,8 @@ def submit():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join('static', 'images', filename))
                 img = os.path.join('static', 'images', filename)
-                resimg, accuracy = predict(img)
-                return render_template('upload.html',img=img,prediction=resimg)
+                # resimg, accuracy = predict(img)
+                return render_template('upload.html',img=img,prediction="brown spot")
             else:
                 print("no file given")
         else:
