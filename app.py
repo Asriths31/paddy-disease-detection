@@ -49,21 +49,24 @@ def home():
 def submit():
     print("submit")
     if request.method == 'POST':
-        
         print("result")
-        file=request.files['uploaded-img']
-        if(file):
-            print(file)
-            filename=secure_filename(file.filename)
-            file.save('static\\images\\'+filename)
-            img='static\\images\\'+filename
-            resimg,accuracy=predict(img)
-            return render_template('upload.html',img=img,name=filename,prediction=resimg,confidence=accuracy)
+        if 'uploaded-img' in request.files:
+            file = request.files['uploaded-img']
+            if file and file is not None:
+                print(file)
+                # filename = secure_filename(file.filename)
+                # file.save(os.path.join('static', 'images', filename))
+                # img = os.path.join('static', 'images', filename)
+                # resimg, accuracy = predict(img)
+                return render_template('upload.html')
+            else:
+                print("no file given")
         else:
-            print("no file given")
-            return render_template('upload.html')
-       
+            print("uploaded-img not in request.files")
+        
     return render_template('upload.html')
+
+
 
 @app.route('/api/predict',methods=['post'])
 
