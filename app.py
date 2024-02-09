@@ -49,13 +49,19 @@ def home():
 def submit():
     print("submit")
     if request.method == 'POST':
+        
         print("result")
         file=request.files['uploaded-img']
-        filename=secure_filename(file.filename)
-        file.save('static\\images\\'+filename)
-        img='static\\images\\'+filename
-        resimg,accuracy=predict(img)
-        return render_template('upload.html',img=img,name=filename,prediction=resimg,confidence=accuracy)
+        if(file):
+            print(file)
+            filename=secure_filename(file.filename)
+            file.save('static\\images\\'+filename)
+            img='static\\images\\'+filename
+            resimg,accuracy=predict(img)
+            return render_template('upload.html',img=img,name=filename,prediction=resimg,confidence=accuracy)
+        else:
+            print("no file given")
+            return render_template('upload.html')
        
     return render_template('upload.html')
 

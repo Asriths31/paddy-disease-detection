@@ -2,11 +2,20 @@ let i=0;
 let speed=9;
 let txt;
 let upload=document.querySelector(".submit")
-let hide=document.getElementById('loading')
-window.onload=function(){
-   hide.style.display="none"
-   
-}
+// let hide=document.getElementById('loading')
+// window.onload=function(){
+//    hide.style.display="none"
+// }
+document.onreadystatechange = function() {
+   if (document.readyState !== "complete") {
+      //  document.querySelector("body").style.visibility = "hidden";
+       document.querySelector("#loading").style.visibility = "visible";
+   } else {
+       document.querySelector("#loading").style.display = "none";
+      //  document.querySelector("body").style.visibility = "visible";
+   }
+};
+
 upload.addEventListener("click",()=>{
    console.log("uploadedddd")
 })
