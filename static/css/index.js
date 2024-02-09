@@ -5,17 +5,9 @@ let txt;
 let hide=document.getElementById('loading')
 window.onload=function(){
    hide.style.display="none"
-   come()
+   
 }
-function come(){
-   let txt="Welcome To The Paddy Disease Detector"
-   let speed1=90
-   if(i<txt.length){
-      document.querySelector("#come").innerHTML+=txt.charAt(i);
-      i++;
-      setTimeout(come,speed1);
-   }
-}
+
 function typewriter1(){
    let txt="Bacterial leaf blight is a deadly bacterial disease that is among the most destructive afflictions of cultivated rice (Oryza sativa and O. glaberrima). In severe epidemics, crop loss may be as high as 75 percent, and millions of hectares of rice are infected annually. The disease was first observed in 1884–85 in Kyushu, Japan, and the causal agent, the bacterium Xanthomonas oryzae pathovar oryzae (also referred to as Xoo), was identified in 1911, at that time having been named Bacillus oryzae. Thriving in warm, humid environments, bacterial blight has been observed in rice-growing regions of Asia, the western coast of Africa, Australia, Latin America, and the Caribbean. Although not commonly found in the United States, a bacterial strain related to Xoo has been listed as an agricultural select agent by the U.S. Department of Agriculture, a designation that places it under strict regulations."
     if(i<txt.length){

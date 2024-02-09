@@ -27,7 +27,26 @@
         <img src="static\images\hand.jpeg" alt="efe">
     </div>
 </div>
-    <script src="static/css/index.js"></script>
+    <script>
+    let hide=document.getElementById('loading')
+    let i=0
+    window.onload=function()
+    {
+   hide.style.display="none"
+   come()
+       }
+        function come()
+        {
+        
+           let txt="Welcome To The Paddy Disease Detector"
+           let speed1=90
+           if(i<txt.length){
+            document.querySelector("#come").innerHTML+=txt.charAt(i);
+           i++;
+          setTimeout(come,speed1);
+                       }
+       }
+    </script>
     <script
   src="https://www.chatbase.co/embed.min.js"
   chatbotId="u-uQDUgrLhinwHMGJOtHA"
