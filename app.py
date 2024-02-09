@@ -23,18 +23,20 @@ app = Flask(__name__,template_folder='templates',static_folder='static')
 # app.config['UPLOAD'] = UPLOAD_FOLDER
 
 
-def predict(img):
-    class_names = ['Bacterial leaf blight', 'Brown spot','Leaf smut']
-    img1= image.load_img(img, target_size=(180, 180))  # Adjust target_size as per your model's input size
-    img_array = image.img_to_array(img1)
-    img_array = np.expand_dims(img_array, axis=0)
-
-    # Predict the class probabilities
-    prediction = model.predict(img_array)[0]
-    idx = np.argmax(prediction)
-    
-    return class_names[idx],prediction[idx]
-
+def predict(img_path,target_size=(180, 180)):
+    class_names = ['Bacterial leaf blight', 'Brown spot', 'Leaf smut']
+    try:
+        img = image.load_img(img_path, target_size=target_size)
+        img_array = image.img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0)
+        
+        # Predict the class probabilities
+        prediction = model.predict(img_array)[0]
+        idx = np.argmax(prediction)
+        
+        return class_names[idx], prediction[idx]
+    except Exception as e:
+        return None, None  # Return None values for both prediction and confidence in case of an error
    
     
 @app.route('/')
@@ -54,11 +56,11 @@ def submit():
             file = request.files['uploaded-img']
             if file and file is not None:
                 print(file)
-                # filename = secure_filename(file.filename)
-                # file.save(os.path.join('static', 'images', filename))
-                # img = os.path.join('static', 'images', filename)
-                # resimg, accuracy = predict(img)
-                return render_template('upload.html')
+                filename = secure_filename(file.filename)
+                file.save(os.path.join('static', 'images', filename))
+                img = os.path.join('static', 'images', filename)
+                resimg, accuracy = predict(img)
+                return render_template('upload.html',img=img,prediction=resimg)
             else:
                 print("no file given")
         else:
@@ -68,16 +70,16 @@ def submit():
 
 
 
-@app.route('/api/predict',methods=['post'])
+# @app.route('/api/predict',methods=['post'])
 
-def api_predict():
-    data=request.get_json(force=true)
-    file=data["content"]
-    filename=secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD'],filename))
-    img=os.path.join(app.config['UPLOAD'],filename)
-    resimg,accuracy=predict(img)
-    return jsonify({"prediction":resimg})
+# def api_predict():
+#     data=request.get_json(force=true)
+#     file=data["content"]
+#     filename=secure_filename(file.filename)
+#     file.save(os.path.join(app.config['UPLOAD'],filename))
+#     img=os.path.join(app.config['UPLOAD'],filename)
+#     resimg,accuracy=predict(img)
+#     return jsonify({"prediction":resimg})
    
 
 if __name__=='__main__':
