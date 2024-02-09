@@ -1,10 +1,11 @@
 let i=0;
 let speed=9;
 let txt;
-window.onload=come;
+
 let hide=document.getElementById('loading')
 window.onload=function(){
    hide.style.display="none"
+   come()
 }
 function come(){
    let txt="Welcome To The Paddy Disease Detector"

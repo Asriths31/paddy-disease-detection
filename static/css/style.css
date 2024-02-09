@@ -173,16 +173,15 @@ nav  a{
 
     }
     #loading{
-        margin: 0;
-        height: 120vh;
+        margin: 10px 0 0 0;
+        
     }
     #loading img{
         height: 30vw;
         width: 30vh;
     }
     nav{
-    
-        flex-direction: column;
+         flex-direction: column;
         align-items: end;
         height:80px ;
         width: 100vw;
