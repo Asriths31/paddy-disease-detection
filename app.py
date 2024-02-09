@@ -40,14 +40,16 @@ def predict(img):
 @app.route('/')
 
 def home():
+    print("home")
     return render_template('home.html')
     
 
 @app.route('/result',methods=['GET','POST'])
 
 def submit():
-   
+    print("submit")
     if request.method == 'POST':
+        print("result")
         file=request.files['uploaded-img']
         filename=secure_filename(file.filename)
         file.save('static\\images\\'+filename)
