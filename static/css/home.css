@@ -27,6 +27,7 @@ body{
     z-index: 99;
 }
 #loading img{
+    border-radius: 20px;
     height: 20%;
     width: 20%;
 }

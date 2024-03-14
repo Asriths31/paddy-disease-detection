@@ -5,7 +5,6 @@ import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 ##from tensorflow.keras.optimizers import Adam
-
 from keras.models import load_model
 from keras_preprocessing.image import img_to_array
 import os
@@ -24,12 +23,11 @@ app = Flask(__name__,template_folder='templates',static_folder='static')
 
 
 def predict(img_path,target_size=(180, 180)):
-    class_names = ['Bacterial leaf blight', 'Brown spot', 'Leaf smut']
+    class_names=['Bacterial leaf blight','Brown spot','Leaf smut']
     try:
         img = image.load_img(img_path, target_size=target_size)
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
-        
         # Predict the class probabilities
         prediction = model.predict(img_array)[0]
         idx = np.argmax(prediction)
@@ -57,10 +55,10 @@ def submit():
             if file and file is not None:
                 print(file)
                 filename = secure_filename(file.filename)
-                file.save(os.path.join('static', 'images', filename))
-                img = os.path.join('static', 'images', filename)
-                # resimg, accuracy = predict(img)
-                return render_template('upload.html',img=img,prediction="Brown spot")
+                file.save(os.path.join('static', 'uploads', filename))
+                img = os.path.join('static', 'uploads', filename)
+                resimg, accuracy = predict(img)
+                return render_template('upload.html',img=img,prediction=resimg)
             else:
                 print("no file given")
         else:
